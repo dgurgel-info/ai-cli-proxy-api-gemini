@@ -290,38 +290,35 @@ A versão validada utiliza o fluxo OAuth do Antigravity para expor os modelos Go
 systemctl stop cliproxyapi.service
 ```
 
-### 7.2 Iniciar o login sem abrir navegador na VPS
+### 7.2 Criar o túnel SSH no computador local
+
+**Abra um terminal no computador onde está o navegador** (não na VPS) e execute:
 
 ```bash
-/usr/local/bin/cli-proxy-api \\
-  -config /root/.cli-proxy-api/config.yaml \\
-  -antigravity-login \\
+ssh -N -o ExitOnForwardFailure=yes -L 51121:127.0.0.1:51121 root@IP_DA_VPS -p 22
+```
+
+Se você usa uma chave SSH:
+
+```bash
+ssh -i /caminho/da-chave -N -o ExitOnForwardFailure=yes \
+  -L 51121:127.0.0.1:51121 root@IP_DA_VPS -p 22
+```
+
+Substitua `IP_DA_VPS` e, se necessário, a porta SSH. **Deixe esse terminal aberto** até o login terminar; com `-N` ele não exibirá um prompt remoto. O túnel pode ser criado antes de o CLIProxyAPI começar a ouvir na porta de callback.
+
+### 7.3 Iniciar o login na VPS
+
+Em **outro terminal, conectado à VPS**, execute:
+
+```bash
+/usr/local/bin/cli-proxy-api \
+  -config /root/.cli-proxy-api/config.yaml \
+  -antigravity-login \
   -no-browser
 ```
 
-O programa exibirá:
-
-- uma porta de callback, normalmente `51121`;
-- um comando de túnel SSH;
-- uma URL de autorização Google.
-
-### 7.3 Criar o túnel SSH no computador local
-
-Execute no seu computador, não na VPS:
-
-```bash
-ssh -L 51121:127.0.0.1:51121 root@IP_DA_VPS -p 22
-```
-
-Com chave SSH:
-
-```bash
-ssh -i /caminho/da-chave \\
-  -L 51121:127.0.0.1:51121 \\
-  root@IP_DA_VPS -p 22
-```
-
-Mantenha esse terminal aberto.
+O programa exibirá uma URL de autorização Google e aguardará o callback. O fluxo validado usa a porta `51121`. **Se ele informar outra porta, pare o túnel com `Ctrl+C` e abra-o novamente usando a porta informada nas duas posições de `-L` antes de abrir a URL.** Não feche o terminal do login enquanto ele estiver aguardando.
 
 ### 7.4 Autorizar no navegador
 
