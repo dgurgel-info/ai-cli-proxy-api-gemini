@@ -618,3 +618,67 @@ OAuth Google/Antigravity: concluído
 Modelos: disponíveis após autenticação
 Hermes: conectado e testado
 ```
+
+## 14. Riscos, políticas e fontes para revalidação
+
+Esta seção deve ser lida antes de usar o CLIProxyAPI com uma conta Google importante.
+
+### Relato público relacionado
+
+- Issue 1814 do CLIProxyAPI: https://github.com/router-for-me/CLIProxyAPI/issues/1814
+
+Essa issue registra um relato de suspensão de conta associado ao uso do CLIProxyAPI com login Google/Antigravity. É um relato individual: não comprova, sozinho, que o CLIProxyAPI foi a causa definitiva da suspensão e não permite calcular uma probabilidade de ban.
+
+### Regras e documentos oficiais
+
+- Termos de IA generativa do Google: https://policies.google.com/terms/generative-ai
+- Licença do plugin Gemini Code Assist: https://developers.google.com/gemini-code-assist/resources/plugin-license
+
+Esses documentos são a referência oficial para uso, restrições, abuso, interferência, redistribuição e disponibilização dos serviços. Eles podem ser alterados pelo Google; reavalie os links antes de usar o serviço em produção ou comercialmente.
+
+### Como o risco pode aparecer
+
+O Google não publica o classificador completo usado para detectar abuso. Em termos práticos, o provedor pode correlacionar sinais como:
+
+- cliente OAuth e aplicação usados na autorização;
+- padrão, volume e frequência das requisições;
+- IP, localização e mudanças frequentes de rede;
+- muitas sessões ou chamadas simultâneas;
+- automação contínua fora do cliente oficial;
+- rotação de várias contas;
+- tentativas de contornar limites, proteções ou controles de acesso;
+- violação das políticas de conteúdo ou uso.
+
+Isso é uma avaliação de risco, não uma afirmação de que todos esses sinais são usados em todos os casos.
+
+### Riscos específicos desta configuração
+
+- O OAuth do Antigravity é transformado pelo CLIProxyAPI em uma API local compatível com outros protocolos.
+- O Hermes pode gerar chamadas longas, automatizadas e repetidas.
+- A VPS pode produzir um padrão de uso diferente do cliente oficial.
+- A porta ou a chave local podem ser expostas acidentalmente.
+- O uso por terceiros, revenda ou oferta pública pode criar riscos adicionais de política e segurança.
+
+Não há garantia de que uma conta permanecerá sem restrições ou suspensão.
+
+### Medidas de redução de risco
+
+- Preferir uma conta Google separada para testes, não a conta principal.
+- Manter o serviço limitado a `127.0.0.1:8317`.
+- Não compartilhar a chave de `api-keys`.
+- Não habilitar `remote-management.allow-remote` sem necessidade.
+- Não expor o CLIProxyAPI como serviço para terceiros.
+- Não usar rotação automática de múltiplas contas.
+- Evitar automação pesada e execução contínua sem necessidade.
+- Não tentar burlar limites, bloqueios ou verificações do Google.
+- Para produção, avaliar a Gemini API oficial com chave própria e faturamento configurado.
+
+### Revogar a autorização local
+
+```bash
+systemctl stop cliproxyapi.service
+rm -f /root/.cli-proxy-api/antigravity-*.json
+systemctl start cliproxyapi.service
+```
+
+A remoção local não substitui a revogação na Conta Google. Para revogar completamente, remova também o acesso em **Conta Google → Segurança → Conexões com apps e serviços de terceiros**.
