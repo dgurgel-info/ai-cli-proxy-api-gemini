@@ -4,7 +4,6 @@
   <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
   <img src="https://img.shields.io/badge/Ubuntu-24.04-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu 24.04" />
   <img src="https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" alt="Bash" />
-  <img src="https://img.shields.io/badge/systemd-222222?style=for-the-badge&logo=linux&logoColor=white" alt="systemd" />
   <img src="https://img.shields.io/badge/CLIProxyAPI-34495E?style=for-the-badge" alt="CLIProxyAPI" />
   <img src="https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Google Gemini" />
   <img src="https://img.shields.io/badge/Hermes_Agent-FF6F00?style=for-the-badge" alt="Hermes Agent" />
