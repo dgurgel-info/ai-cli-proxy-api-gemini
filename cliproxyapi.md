@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/Hermes_Agent-FF6F00?style=for-the-badge" alt="Hermes Agent" />
 </p>
 
-Tutorial copy-and-paste para instalar o CLIProxyAPI em uma VPS Ubuntu, autenticar uma conta Google/Gemini por OAuth e usar os modelos no Hermes Agent.
+Tutorial copy-and-paste para instalar o [CLIProxyAPI (router-for-me/CLIProxyAPI)](https://github.com/router-for-me/CLIProxyAPI) em uma VPS Ubuntu, autenticar uma conta Google/Gemini por OAuth e usar os modelos no Hermes Agent.
 
 > **Estado validado:** Ubuntu 24.04 x86_64, CLIProxyAPI 7.3.11, serviço systemd persistente e Hermes conectado por `http://127.0.0.1:8317/v1`.
 >
