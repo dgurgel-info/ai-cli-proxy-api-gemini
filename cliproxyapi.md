@@ -1,5 +1,15 @@
 # CLIProxyAPI + Gemini + Hermes no Ubuntu
 
+<p align="left">
+  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
+  <img src="https://img.shields.io/badge/Ubuntu-24.04-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu 24.04" />
+  <img src="https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" alt="Bash" />
+  <img src="https://img.shields.io/badge/systemd-222222?style=for-the-badge&logo=linux&logoColor=white" alt="systemd" />
+  <img src="https://img.shields.io/badge/CLIProxyAPI-34495E?style=for-the-badge" alt="CLIProxyAPI" />
+  <img src="https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Google Gemini" />
+  <img src="https://img.shields.io/badge/Hermes_Agent-FF6F00?style=for-the-badge" alt="Hermes Agent" />
+</p>
+
 Tutorial copy-and-paste para instalar o CLIProxyAPI em uma VPS Ubuntu, autenticar uma conta Google/Gemini por OAuth e usar os modelos no Hermes Agent.
 
 > **Estado validado:** Ubuntu 24.04 x86_64, CLIProxyAPI 7.3.11, serviço systemd persistente e Hermes conectado por `http://127.0.0.1:8317/v1`.
