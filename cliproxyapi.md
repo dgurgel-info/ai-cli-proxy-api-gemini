@@ -92,12 +92,12 @@ BASE="https://github.com/router-for-me/CLIProxyAPI/releases/download/v${VERSION}
 ### 3.2 Baixar a release e o checksum
 
 ```bash
-curl -fL --retry 3 \\
-  -o "CLIProxyAPI_${VERSION}_linux_amd64.tar.gz" \\
+curl -fL --retry 3 \
+  -o "CLIProxyAPI_${VERSION}_linux_amd64.tar.gz" \
   "${BASE}/CLIProxyAPI_${VERSION}_linux_amd64.tar.gz"
 
-curl -fL --retry 3 \\
-  -o checksums.txt \\
+curl -fL --retry 3 \
+  -o checksums.txt \
   "${BASE}/checksums.txt"
 ```
 
@@ -280,8 +280,8 @@ Testar a API:
 ```bash
 export CLIPROXY_KEY='SUA_CHAVE_LOCAL'
 
-curl -sS --max-time 15 \\
-  -H "Authorization: Bearer ${CLIPROXY_KEY}" \\
+curl -sS --max-time 15 \
+  -H "Authorization: Bearer ${CLIPROXY_KEY}" \
   http://127.0.0.1:8317/v1/models
 ```
 
@@ -361,8 +361,8 @@ O arquivo OAuth será salvo dentro de:
 ```bash
 export CLIPROXY_KEY='SUA_CHAVE_LOCAL'
 
-curl -sS --max-time 20 \\
-  -H "Authorization: Bearer ${CLIPROXY_KEY}" \\
+curl -sS --max-time 20 \
+  -H "Authorization: Bearer ${CLIPROXY_KEY}" \
   http://127.0.0.1:8317/v1/models
 ```
 
@@ -386,9 +386,9 @@ Use o nome exatamente como retornado pela sua própria VPS. Os modelos disponív
 Substitua `NOME_DO_MODELO`:
 
 ```bash
-curl -sS http://127.0.0.1:8317/v1/chat/completions \\
-  -H "Authorization: Bearer ${CLIPROXY_KEY}" \\
-  -H "Content-Type: application/json" \\
+curl -sS http://127.0.0.1:8317/v1/chat/completions \
+  -H "Authorization: Bearer ${CLIPROXY_KEY}" \
+  -H "Content-Type: application/json" \
   -d '{
     "model": "NOME_DO_MODELO",
     "messages": [
@@ -410,7 +410,7 @@ Só configure o Hermes depois que esse teste retornar resposta válida.
 Faça backup da configuração atual:
 
 ```bash
-cp ~/.hermes/config.yaml \\
+cp ~/.hermes/config.yaml \
   ~/.hermes/config.yaml.backup-before-cliproxyapi
 ```
 
