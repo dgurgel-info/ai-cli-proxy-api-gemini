@@ -11,7 +11,7 @@
 
 Tutorial copy-and-paste para instalar o [CLIProxyAPI (router-for-me/CLIProxyAPI)](https://github.com/router-for-me/CLIProxyAPI) em uma VPS Ubuntu, autenticar uma conta Google/Gemini por OAuth e usar os modelos no Hermes Agent.
 
-> **Estado validado:** Ubuntu 24.04 x86_64, CLIProxyAPI 7.3.11, serviço systemd persistente e Hermes conectado por `http://127.0.0.1:8317/v1`.
+> **Estado validado:** Ubuntu 24.04 x86_64, CLIProxyAPI 8.0.4, serviço systemd persistente e Hermes conectado por `http://127.0.0.1:8317/v1`.
 >
 > **Importante:** este tutorial não publica tokens, senhas, cookies ou arquivos OAuth. Substitua todos os valores marcados com `SEU_...`.
 
@@ -105,7 +105,7 @@ sha256sum -c checksum.selected
 Resultado esperado:
 
 ```text
-CLIProxyAPI_7.3.11_linux_amd64.tar.gz: OK
+CLIProxyAPI_8.0.4_linux_amd64.tar.gz: OK
 ```
 
 Se aparecer `FAILED`, pare e não instale o arquivo.
@@ -609,7 +609,7 @@ systemctl start cliproxyapi.service
 ## Resultado validado
 
 ```text
-CLIProxyAPI: 7.3.11
+CLIProxyAPI: 8.0.4
 Serviço: cliproxyapi.service
 Boot: enabled
 Estado: active
