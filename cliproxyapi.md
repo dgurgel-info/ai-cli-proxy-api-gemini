@@ -85,20 +85,14 @@ Ubuntu 24.04 x86_64
 mkdir -p /cache/cliproxyapi-install
 cd /cache/cliproxyapi-install
 
-VERSION=7.3.11
+VERSION=8.0.4
 BASE="https://github.com/router-for-me/CLIProxyAPI/releases/download/v${VERSION}"
 ```
 
 ### 3.2 Baixar a release e o checksum
 
 ```bash
-curl -fL --retry 3 \
-  -o "CLIProxyAPI_${VERSION}_linux_amd64.tar.gz" \
-  "${BASE}/CLIProxyAPI_${VERSION}_linux_amd64.tar.gz"
-
-curl -fL --retry 3 \
-  -o checksums.txt \
-  "${BASE}/checksums.txt"
+wget https://github.com/router-for-me/CLIProxyAPI/releases/download/v${VERSION}\/CLIProxyAPI_${VERSION}_linux_amd64.tar.gz
 ```
 
 ### 3.3 Validar o arquivo baixado
